@@ -88,9 +88,9 @@ body {
 .card__btn {
   text-decoration: none;
   padding: 0.5em 1.5em;
-  border: 1px solid gray;
   color: #f0f0f0;
   background-color: black;
+  border-radius: 25px;
 }
 
 .card__btn + .card__btn {
