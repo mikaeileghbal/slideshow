@@ -108,3 +108,9 @@ body {
 .card__btn + .card__btn {
   margin-left: 0.5em;
 }
+
+//Create conflict
+.someClass {
+  background-color: black;
+  color: white;
+}
