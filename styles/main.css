@@ -13,11 +13,11 @@ body {
 
 .card__container {
   background-color: aqua;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  display: grid;
-  grid-auto-flow: column;
+  padding: 1em;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
   max-width: 500px;
   scrollbar-width: none;
   counter-reset: count-cards;
@@ -32,12 +32,19 @@ body {
   background-color: bisque;
   width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   white-space: normal;
-  position: relative;
+  position: absolute;
   counter-increment: count-cards;
   margin: 0;
+  transform: translateX(-100%);
+  transition: all 0.6s ease-out;
+}
+.card.active {
+  transform: translateX(0);
 }
 .card::before {
   content: counter(count-cards);
@@ -57,7 +64,8 @@ body {
 }
 
 .card img {
-  width: 500px;
+  width: 100%;
+  height: 100%;
   border: 1px solid gray;
 }
 
@@ -75,10 +83,6 @@ body {
         scroll-snap-type: x mandatory;
     scroll-padding: 0 0;
     scroll-snap-stop: always;
-  }
-
-  .card {
-    scroll-snap-align: start;
   }
 }
 .card__btn__container {
