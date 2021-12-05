@@ -1,5 +1,6 @@
 let cardIndex = 0;
 let cards = document.querySelectorAll(".card");
+const duration = 5000;
 
 console.log(cards[cardIndex]);
 
@@ -7,7 +8,7 @@ document.addEventListener("click", (e) => {
     bringToView(cards[cardIndex]);
 })
 
-let cardsInterval = setInterval(changeCard, 3000);
+let cardsInterval = setInterval(changeCard, duration);
 
 function changeCard() {
     cardIndex++;
@@ -18,7 +19,7 @@ function changeCard() {
     setZIndex(cards, cardIndex);
 
     bringToView(cards[cardIndex]);
-    cards[cardIndex].addEventListener("transitionend", e => {
+    cards[cardIndex].addEventListener("animationend", e => {
         if (cardIndex !== 0) {
             resetCard(cardIndex - 1);
         }

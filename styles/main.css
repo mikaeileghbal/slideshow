@@ -1,3 +1,13 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
 body {
   background-color: white;
 }
@@ -12,13 +22,11 @@ body {
 }
 
 .card__container {
-  background-color: aqua;
-  padding: 1em;
+  background-color: white;
   width: 400px;
   height: 500px;
   overflow: hidden;
   position: relative;
-  max-width: 500px;
   scrollbar-width: none;
   counter-reset: count-cards;
   scroll-behavior: smooth;
@@ -41,15 +49,19 @@ body {
   counter-increment: count-cards;
   margin: 0;
   transform: translateX(-100%);
-  transition: all 0.6s ease-out;
 }
 .card.active {
-  transform: translateX(0);
+  -webkit-animation: slide-card 0.8s ease-out;
+          animation: slide-card 0.8s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
+
 .card::before {
   content: counter(count-cards);
   position: absolute;
   display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
@@ -70,11 +82,28 @@ body {
 }
 
 .card__caption {
-  margin-top: 10px;
-  max-width: 4rem;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  color: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  text-align: center;
+  padding: 0.5em;
+  opacity: 0.7;
+}
+
+.card.active .card__caption {
+  -webkit-animation: show-text 2.4s ease-out;
+          animation: show-text 2.4s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @supports (scroll-snap-type: x mandatory) {
@@ -99,4 +128,53 @@ body {
 
 .card__btn + .card__btn {
   margin-left: 0.5em;
+}
+
+.someClass {
+  background-color: black;
+  color: white;
+}
+
+.class2 {
+  color: #f0f0f0;
+}
+
+@-webkit-keyframes slide-card {
+  0% {
+    transform: translateX(-100);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-card {
+  0% {
+    transform: translateX(-100);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes show-text {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+@keyframes show-text {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }/*# sourceMappingURL=main.css.map */
