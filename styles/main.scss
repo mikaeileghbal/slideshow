@@ -1,182 +1,213 @@
 :root {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-  background-color: white;
+	background-color: white;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .container {
-  //width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  //padding: 1em;
-  background-color: white;
+	//width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	//padding: 1em;
+	background-color: white;
 }
 
 .card__container {
-  background-color: white;
-  //padding: 1em;
-  width: 400px;
-  height: 500px;
-  overflow: hidden;
-  // white-space: nowrap;
-  // overflow-x: auto;
-  // overflow-y: hidden;
-  // display: grid;
-  // grid-auto-flow: column;
-  // max-width: min-content;
-  position: relative;
-  //max-width: 500px;
-  scrollbar-width: none;
-  counter-reset: count-cards;
-  scroll-behavior: smooth;
+	background-color: white;
+	//padding: 1em;
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	// white-space: nowrap;
+	// overflow-x: auto;
+	// overflow-y: hidden;
+	// display: grid;
+	// grid-auto-flow: column;
+	// max-width: min-content;
+	position: relative;
+	//max-width: 500px;
+	scrollbar-width: none;
+	counter-reset: count-cards;
+	scroll-behavior: smooth;
 }
 
 .card__container::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .card {
-  background-color: bisque;
-  //padding: 1em;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  white-space: normal;
-  //margin: 15px 20px;
-  position: absolute;
-  counter-increment: count-cards;
-  margin: 0;
-  transform: translateX(-100%);
-  //transition: all 0.6s ease-out;
-  //opacity: 0;
+	background-color: bisque;
+	//padding: 1em;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	white-space: normal;
+	//margin: 15px 20px;
+	position: absolute;
+	counter-increment: count-cards;
+	margin: 0;
+	transform: translateX(-100%);
+	//transition: all 0.6s ease-out;
+	//opacity: 0;
 
-  &.active {
-    //transform: translateX(0);
-    animation: slide-card 0.8s ease-out;
-    animation-fill-mode: forwards;
-  }
+	&.active {
+		//transform: translateX(0);
+		animation: slide-card 0.8s ease-out;
+		animation-fill-mode: forwards;
+	}
 }
 
 .card::before {
-  content: counter(count-cards);
-  position: absolute;
-  display: flex;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  line-height: 1rem;
-  top: -15px;
-  left: -0.7rem;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  color: #111;
-  background-color: #f0f0f0;
+	content: counter(count-cards);
+	position: absolute;
+	display: flex;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	line-height: 1rem;
+	top: -15px;
+	left: -0.7rem;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	color: #111;
+	background-color: #f0f0f0;
 }
 .card img {
-  //height: 500px;
-  //width: 500px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid gray;
+	//height: 500px;
+	//width: 500px;
+	width: 100%;
+	height: 100%;
+	border: 1px solid gray;
 }
 
 .card__caption {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  text-align: center;
-  padding: 0.5em;
-  opacity: 0.7;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: white;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	text-align: center;
+	padding: 0.5em;
+	background-color: rgba(255, 255, 255, 0.7);
+
+	p {
+		transform: translateY(200px);
+		opacity: 0;
+		text-transform: uppercase;
+	}
 }
 .card.active .card__caption {
-  //background-color: black;
-  animation: show-text 2.4s ease-out;
-  animation-fill-mode: forwards;
+	//background-color: black;
+	animation: background-lighten 2.4s ease-out;
+	animation-fill-mode: forwards;
+
+	> p {
+		animation: show-text 2.4s ease-out 0.25s;
+		animation-fill-mode: forwards;
+	}
 }
 
 @supports (scroll-snap-type: x mandatory) {
-  .card__container {
-    scroll-snap-type: x mandatory;
-    scroll-padding: 0 0;
-    scroll-snap-stop: always;
-  }
+	.card__container {
+		scroll-snap-type: x mandatory;
+		scroll-padding: 0 0;
+		scroll-snap-stop: always;
+	}
 
-  .card {
-    //scroll-snap-align: start;
-  }
+	.card {
+		//scroll-snap-align: start;
+	}
 }
 
 .card__btn__container {
-  margin-top: 2em;
+	margin-top: 2em;
 }
 
 .card__btn {
-  text-decoration: none;
-  padding: 0.5em 1.5em;
-  color: black;
-  background-color: rgba(0, 0, 0, 0.08);
-  border-radius: 25px;
+	text-decoration: none;
+	font-size: 1rem;
+	text-transform: capitalize;
+	display: block;
+	margin-top: 3em;
+	padding: 0.5em 1.5em;
+	color: silver;
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 25px;
 }
 
 .card__btn + .card__btn {
-  margin-left: 0.5em;
+	margin-left: 0.5em;
 }
 
 //Create conflict
 .someClass {
-  background-color: black;
-  color: white;
+	background-color: black;
+	color: white;
 }
 
 .class2 {
-  color: #f0f0f0;
+	color: #f0f0f0;
 }
 
 // Animations
 //===========
 
 @keyframes slide-card {
-  0% {
-    transform: translateX(-100);
-  }
-  100% {
-    transform: translateX(0);
-  }
+	0% {
+		transform: translateX(-100);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes background-lighten {
+	0% {
+		background-color: rgba(255, 255, 255, 0);
+	}
+	70% {
+		background-color: rgba(255, 255, 255, 0);
+	}
+	100% {
+		background-color: rgba(255, 255, 255, 0.7);
+	}
 }
 
 @keyframes show-text {
-  0% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.7;
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(200px);
+	}
+	70% {
+		opacity: 0;
+		transform: translateY(200px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
 }

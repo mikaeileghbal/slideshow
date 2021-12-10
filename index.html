@@ -1,103 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<title>Document</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles/main.css">
-	<title>Document</title>
-
-</head>
-
-<body>
-	<div class="container">
-		<nav class="card__container">
-			<figure class="card active" id="start-card">
-				<img src="images/f1.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f2.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f3.jpg" alt="" />
-				<figcaption class="card__caption">Lorem ipsum dolor sit.</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f4.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit,
-					nesciunt.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f5.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f5.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f6.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f7.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f8.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f9.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f10.jpg" alt="" />
-				<figcaption class="card__caption">Lorem ipsum dolor sit.</figcaption>
-			</figure>
-			<figure class="card">
-				<img src="images/f4.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit,
-					nesciunt.
-				</figcaption>
-			</figure>
-			<figure class="card" id="last-card">
-				<img src="images/f5.jpg" alt="" />
-				<figcaption class="card__caption">
-					Lorem ipsum dolor sit amet consectetur.
-				</figcaption>
-			</figure>
-		</nav>
-		<div class="card__btn__container">
-			<a class="card__btn" href="#start-card">First</a>
-			<a class="card__btn" href="#last-card">Last</a>
+	<body>
+		<div class="container">
+			<nav class="card__container">
+				<figure class="card active" id="start-card">
+					<img src="images/f1.jpg" alt="" />
+					<figcaption class="card__caption">
+						<p>
+							Lorem ipsum dolor
+							<a class="card__btn" href="#start-card">view details</a>
+						</p>
+					</figcaption>
+				</figure>
+				<figure class="card">
+					<img src="images/f2.jpg" alt="" />
+					<figcaption class="card__caption">
+						<p>
+							Lorem ipsum dolor
+							<a class="card__btn" href="#start-card">view details</a>
+						</p>
+					</figcaption>
+				</figure>
+			</nav>
+			<!-- <div class="card__btn__container">
+				<a class="card__btn" href="#start-card">First</a>
+				<a class="card__btn" href="#last-card">Last</a>
+			</div> -->
 		</div>
-	</div>
 
-
-	<script src="code/slideShow.js"></script>
-</body>
-
+		<script src="code/slideShow.js"></script>
+	</body>
 </html>
